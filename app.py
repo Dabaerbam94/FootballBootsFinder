@@ -8,7 +8,7 @@ search_query = st.text_input("Enter the product you're searching for", "football
 max_results = st.slider("Number of results", 5, 50, 10)
 
 if st.button("Search"):
-    if not EBAY_APP_ID or EBAY_APP_ID == 'KevinMan-Football-PRD-980a4d7cf-46471df2':
+    if not EBAY_APP_ID or EBAY_APP_ID = 'KevinMan-Football-PRD-980a4d7cf-46471df2':
         st.error("Please configure your eBay App ID in the code.")
     else:
         sort_order = "PricePlusShippingLowest"

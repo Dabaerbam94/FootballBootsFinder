@@ -3,7 +3,7 @@ from urllib.parse import quote
 import streamlit as st
 
 # Replace with your actual eBay App ID
-EBAY_APP_ID = 'YOUR_EBAY_APP_ID'
+EBAY_APP_ID = 'KevinMan-Football-SBX-b80b1fc0f-377bb58a'
 
 st.title("Football Boots Price Finder (eBay UK)")
 
@@ -11,7 +11,7 @@ search_query = st.text_input("Enter the product you're searching for", "football
 max_results = st.slider("Number of results", 5, 50, 10)
 
 if st.button("Search"):
-    if not EBAY_APP_ID or EBAY_APP_ID == 'YOUR_EBAY_APP_ID':
+    if not EBAY_APP_ID or EBAY_APP_ID == 'KevinMan-Football-SBX-b80b1fc0f-377bb58a':
         st.error("Please configure your eBay App ID in the code.")
     else:
         sort_order = "PricePlusShippingLowest"

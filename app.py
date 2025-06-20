@@ -2,13 +2,16 @@ import requests
 from urllib.parse import quote
 import streamlit as st
 
+# Replace with your actual eBay App ID
+EBAY_APP_ID = 'KevinMan-Football-PRD-980a4d7cf-46471df2'
+
 st.title("Football Boots Price Finder (eBay UK)")
 
 search_query = st.text_input("Enter the product you're searching for", "football boots")
 max_results = st.slider("Number of results", 5, 50, 10)
 
 if st.button("Search"):
-    if not EBAY_APP_ID or EBAY_APP_ID == 'KevinMan-Football-PRD-980a4d7cf-46471df2':
+    if not EBAY_APP_ID:
         st.error("Please configure your eBay App ID in the code.")
     else:
         sort_order = "PricePlusShippingLowest"
@@ -27,8 +30,10 @@ if st.button("Search"):
         )
 
         response = requests.get(url)
+        st.write(f"Response code: {response.status_code}")
         if response.status_code == 200:
             data = response.json()
+            st.write(data)  # TEMP: show full response for debugging
             items = data['findItemsByKeywordsResponse'][0]['searchResult'][0].get('item', [])
 
             if items:
@@ -37,8 +42,9 @@ if st.button("Search"):
                     price = item['sellingStatus'][0]['convertedCurrentPrice'][0]['__value__']
                     link = item['viewItemURL'][0]
                     st.markdown(f"### [{title}]({link})")
-                    st.write(f"**Price:** £{price}")
+                    st.write(f"**Price:** £{float(price):.2f}")
             else:
                 st.info("No items found for your search.")
         else:
             st.error("Failed to fetch data from eBay API.")
+            st.write(response.text)  # TEMP: show error message for debugging

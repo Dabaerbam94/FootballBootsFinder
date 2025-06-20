@@ -2,9 +2,6 @@ import requests
 from urllib.parse import quote
 import streamlit as st
 
-# Replace with your actual eBay App ID
-EBAY_APP_ID = 'YOUR_EBAY_APP_ID'
-
 st.title("Football Boots Price Finder (eBay UK)")
 
 search_query = st.text_input("Enter the product you're searching for", "football boots")

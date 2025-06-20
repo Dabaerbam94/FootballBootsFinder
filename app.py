@@ -17,7 +17,7 @@ if st.button("Search"):
             f"https://svcs.ebay.com/services/search/FindingService/v1"
             f"?OPERATION-NAME=findItemsByKeywords"
             f"&SERVICE-VERSION=1.0.0"
-            f"&SECURITY-APPNAME={EBAY_APP_ID}"
+            f"&SECURITY-APPNAME={KevinMan-Football-PRD-980a4d7cf-46471df2}"
             f"&RESPONSE-DATA-FORMAT=JSON"
             f"&REST-PAYLOAD"
             f"&keywords={quote(search_query)}"
